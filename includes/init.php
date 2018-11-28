@@ -4,5 +4,5 @@
  * @return void
  */
 function hmu_init() {
-
+    
 }

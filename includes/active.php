@@ -9,4 +9,16 @@ function hmu_active_plugin() {
     }
 
     hmu_init();
+
+
+    $hmu_opts = get_option('hmu_opts');
+
+    if(!$hmu_opts) {
+        $opts = [
+            "hotmart_token" => '',
+            "is_sendgrid_smtp" =>  false,
+        ];
+
+        add_option( 'hmu_opts', $opts );
+    }
 }
