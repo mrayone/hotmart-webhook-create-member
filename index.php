@@ -27,15 +27,17 @@ define ('HMU_PLUGIN_URL', __FILE__);
 
 //Includes;
 include( 'includes/active.php' );
+include( 'includes/deactivate.php' );
 include( 'includes/init.php' );
 include( 'includes/admin/init.php' );
 include( 'includes/admin/menus.php' );
 include( 'includes/admin/plugin-options-page.php' );
-include( 'includes/admin/routes.php' );
+include( 'includes/api/routes.php' );
+include( 'includes/api/user.php' );
 
 //Hooks
 register_activation_hook( __FILE__, 'hmu_active_plugin' );
 register_activation_hook( __FILE__, 'hmu_deactivate_plugin' );
 add_action( 'admin_init', 'hmu_admin_init' );
-add_action('admin_menu', 'hmu_admin_menus');
-add_action( 'rest_api_init', 'hmu_routes');
+add_action( 'admin_menu', 'hmu_admin_menus' );
+add_action( 'rest_api_init', 'hmu_rest_routes_init' );

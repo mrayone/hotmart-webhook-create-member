@@ -15,7 +15,7 @@ function hmu_active_plugin() {
 
     if(!$hmu_opts) {
         $opts = [
-            "hotmart_token" => '',
+            "__security_token" => '',
             "is_sendgrid_smtp" =>  false,
         ];
 
