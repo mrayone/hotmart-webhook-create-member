@@ -16,7 +16,10 @@ function hmu_active_plugin() {
     if(!$hmu_opts) {
         $opts = [
             "hottok" => '',
-            "is_sendgrid_smtp" =>  false,
+            "email_autor" => get_option( "admin_email", "" ),
+            "titulo_email" => '',
+            "nome_autor" => '',
+            "conteudo_email" => '',
         ];
 
         add_option( 'hmu_opts', $opts );

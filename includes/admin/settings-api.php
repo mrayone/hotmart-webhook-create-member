@@ -3,7 +3,6 @@ function hmu_settings_api()
 {
     register_setting('hmu_opts_group', 'hmu_opts', 'hmu_opts_sanitaze');
 
-
     //Section dos campos para configuração do webhook.
     add_settings_section(
         'hmu_settings',
@@ -109,7 +108,7 @@ function hmu_conteudo_email_callback_function () {
 function hmu_link_webhook() {
     ?>
 <code>
-    <?php echo rest_url( 'hothook/v1/user' ); ?>
+    <?php echo UserController::getRoute('store'); ?>
 </code>
 <?php
 }

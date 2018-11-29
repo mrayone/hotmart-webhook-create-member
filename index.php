@@ -16,8 +16,6 @@ Text Domain:  hotwebhookuser
 Domain Path:  /languages
 */
 
-
-
 if( ! function_exists('add_action') ) {
     echo __('Olá, Eu sou apenas um plugin, não posso ser acessado diretamente.', 'hotwebhookuser');
 }
@@ -33,7 +31,7 @@ include( 'includes/admin/init.php' );
 include( 'includes/admin/menus.php' );
 include( 'includes/admin/plugin-options-page.php' );
 include( 'includes/api/routes.php' );
-include( 'includes/api/user.php' );
+include( 'includes/api/UserController.php' );
 
 //Hooks
 register_activation_hook( __FILE__, 'hmu_active_plugin' );
