@@ -15,7 +15,7 @@ function hmu_active_plugin() {
 
     if(!$hmu_opts) {
         $opts = [
-            "__security_token" => '',
+            "hottok" => '',
             "is_sendgrid_smtp" =>  false,
         ];
 

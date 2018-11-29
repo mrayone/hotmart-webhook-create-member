@@ -6,6 +6,7 @@ function hmu_admin_menus() {
       __('WebHook Hotmart', 'hotwebhookuser'),
       'edit_theme_options', 
       'hmu_plugin_opts',
-      'hmu_plugin_opts_page'
+      'hmu_plugin_opts_page',
+      plugin_dir_url( HMU_PLUGIN_URL ). 'assets/icons/logo-hotmart.png'
     );
 }
