@@ -38,6 +38,11 @@ class UserController {
 
         $obj =  $request->get_params();
         $opt =  get_option( 'hmu_opts' );
+        if(!$opt) {
+            status_header( 502 );
+            wp_send_json( "Erro de configuração do plugin!" );
+        }
+
         $errors =  $this->validate($obj, [
                 "hottok"       => 'required',
                 "first_name"    => 'required',
@@ -47,7 +52,7 @@ class UserController {
         );
 
         if(count($errors) === 0) {
-            if ($obj["hottok"] == "XeHaykWnh8pHKVDm2ZETkJy0y4XK86edc1b5f2-93da-40b9-9acd-df912e4b39cc" ) {
+            if ($obj["hottok"] == $opt['hmu_token_required'] ) {
                 if(email_exists( $obj["email"] )) {
                     status_header( 502 );
                     wp_send_json( __('Este e-mail já está em uso!', 'hotwebhookuser')  );
@@ -76,9 +81,29 @@ class UserController {
         wp_send_json( $errors );
     }
 
+    /**
+     * Método que envia o e-mail de acordo com o template.
+     * @param array $dados
+     * @return void
+     */
     private function send_email( $dados ) {
-            $headers = array('Content-Type: text/html; charset=UTF-8');
-            wp_mail( $dados['email'], "Assunto", "Bla bla bla", $headers);
+            $opt =  get_option( 'hmu_opts' );
+            $nome_autor    = $opt['hmu_nome_autor'];
+            $email_autor   = $opt['hmu_email_remetente_required'];
+            $template = wp_remote_get(
+                plugins_url( 'template/email-template.php', HMU_PLUGIN_URL )
+            );
+            $message_html = wp_remote_retrieve_body($template);
+
+            $message_html  = str_replace( 'NOME_CLIENTE', $dados['first_name'], $message_html );
+            $message_html  = str_replace( 'NOME_AUTOR', $opt['hmu_nome_autor'], $message_html );
+            $message_html  = str_replace( 'CURSO_NOME', $dados['prod_name'], $message_html );
+            $message_html  = str_replace( 'USU_LOGIN', $dados['email'], $message_html );
+            $message_html  = str_replace( 'USU_PASSWORD', $dados['password'], $message_html );
+            $assunto = $opt['hmu_title_email_required'];
+
+            $headers = array('Content-Type: text/html; charset=UTF-8', "Reply-To: {$nome_autor} <{$email_autor}>");
+            wp_mail( $dados['email'], $assunto, $message_html, $headers);
     }
     /**
      * Método para validar dados de acordo com as $rules.
