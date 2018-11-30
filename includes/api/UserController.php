@@ -66,7 +66,7 @@ class UserController {
                         'user_email'    => $obj['email'],
                         'user_pass'     => $password,
                     );
-                    wp_insert_user( $userdata );
+                    //wp_insert_user( $userdata );
                     $obj['password'] = $password;
                     $this->send_email($obj);
                     wp_send_json( "Done");
@@ -103,7 +103,25 @@ class UserController {
             $assunto = $opt['hmu_title_email_required'];
 
             $headers = array('Content-Type: text/html; charset=UTF-8', "Reply-To: {$nome_autor} <{$email_autor}>");
-            wp_mail( $dados['email'], $assunto, $message_html, $headers);
+
+            //wp_mail( $dados['email'], $assunto, $message_html, $headers);
+            $email = new \SendGrid\Mail\Mail(); 
+            $email->setFrom($email_autor, $nome_autor);
+            $email->setSubject($assunto);
+            $email->addTo($dados['email'], $dados['first_name']);
+            $email->addContent(
+                "text/html", $message_html
+            );
+            
+            $sendgrid = new \SendGrid("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");
+            try {
+                $response = $sendgrid->send($email);
+                print $response->statusCode() . "\n";
+                print_r($response->headers());
+                print $response->body() . "\n";
+            } catch (Exception $e) {
+                echo 'Caught exception: '.  $e->getMessage(). "\n";
+            }
     }
     /**
      * Método para validar dados de acordo com as $rules.
