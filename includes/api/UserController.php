@@ -66,7 +66,7 @@ class UserController {
                         'user_email'    => $obj['email'],
                         'user_pass'     => $password,
                     );
-                    //wp_insert_user( $userdata );
+                    wp_insert_user( $userdata );
                     $obj['password'] = $password;
                     $this->send_email($obj);
                     wp_send_json( "Done");
