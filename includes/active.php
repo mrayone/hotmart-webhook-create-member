@@ -9,11 +9,10 @@ function hmu_active_plugin() {
     }
 
     hmu_init();
-
-
+    
     $hmu_opts = get_option('hmu_opts');
 
-    if(!$hmu_opts) {
+    if( !$hmu_opts ) {
         $opts = [
             "hottok" => '',
             "email_autor" => get_option( "admin_email", "" ),
