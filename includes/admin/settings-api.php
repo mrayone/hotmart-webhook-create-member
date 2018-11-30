@@ -13,12 +13,19 @@ function hmu_settings_api()
 
     add_settings_field(
         'hmu_token_required',
-        __('Token do Hotmart', 'hotwebhookuser'),
+        __('Token do Hotmart (*)', 'hotwebhookuser'),
         'hmu_token_callback_function',
         'hmu_opts_sections',
         'hmu_settings'
     );
 
+    add_settings_field(
+        'hmu_sendgrid',
+        __('SendGrid API Token (Opcional)', 'hotwebhookuser'),
+        'hmu_sendgrid_token_callback_function',
+        'hmu_opts_sections',
+        'hmu_settings'
+    );
 
     // Section dos campos de e-mail.
     add_settings_section(
@@ -76,6 +83,16 @@ function hmu_settings_section()
     echo "<p> {$message} </p>";
 }
 
+
+function hmu_sendgrid_token_callback_function () {
+    $opts = get_option('hmu_opts');
+    ?>
+<input type="text" class="regular-text" id="hmu_sendgrid" value="<?php echo $opts['hmu_sendgrid']; ?>"
+ placeholder="Insira o seu token aqui!" name="hmu_opts[hmu_sendgrid]"><a href="https://sendgrid.com/" target="_blank">Obtenha sua chave aqui!</a>
+<p class="description" id="new-admin-email-description">Esta configuração permite utilizar a aplicação SendGrid API para envio de e-mails.</p>
+
+<?php
+}
 
 function hmu_token_callback_function () {
     $opts = get_option('hmu_opts');
@@ -159,6 +176,7 @@ function hmu_opts_sanitaze ( $input ) {
     $input['hmu_title_email_required'] = sanitize_text_field( $input['hmu_email_remetente_required'] );
     $input['hmu_remetente'] = sanitize_text_field( $input['hmu_remetente'] );
     $input['hmu_conteudo_email_input'] = sanitize_text_field( $input['hmu_conteudo_email_input'] );
+    $input['hmu_sendgrid'] = sanitize_text_field( $input['hmu_sendgrid'] );
     $input['hmu_email_remetente_required'] = sanitize_email( $input['hmu_email_remetente_required'] );
     $input['hmu_conteudo_email_input'] = wp_kses_post($input['hmu_conteudo_email_input']);
     
