@@ -1,5 +1,6 @@
 <?php 
 /**
+ * Beta
  * @package Hotmart_Webhook_User_Creat.
  * @version 1.0
  */
