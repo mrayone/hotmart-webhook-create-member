@@ -88,8 +88,8 @@ function hmu_sendgrid_token_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
 <input type="text" class="regular-text" id="hmu_sendgrid" value="<?php echo $opts['hmu_sendgrid']; ?>"
- placeholder="Insira o seu token aqui!" name="hmu_opts[hmu_sendgrid]"><a href="https://sendgrid.com/" target="_blank">Obtenha sua chave aqui!</a>
-<p class="description" id="new-admin-email-description">Esta configuração permite utilizar a aplicação SendGrid API para envio de e-mails.</p>
+ placeholder="Insira o seu token aqui!" name="hmu_opts[hmu_sendgrid]"><a href="https://sendgrid.com/" target="_blank"><?php __('Obtenha sua chave aqui!', 'hotwebhookuser'); ?></a>
+<p class="description" id="new-admin-email-description"><?php echo __('Esta configuração permite utilizar a aplicação SendGrid API para envio de e-mails.', 'hotwebhookuser' ); ?></p>
 
 <?php
 }
