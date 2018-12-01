@@ -87,9 +87,12 @@ function hmu_settings_section()
 function hmu_sendgrid_token_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
-<input type="text" class="regular-text" id="hmu_sendgrid" value="<?php echo $opts['hmu_sendgrid']; ?>"
- placeholder="Insira o seu token aqui!" name="hmu_opts[hmu_sendgrid]"><a href="https://sendgrid.com/" target="_blank"><?php __('Obtenha sua chave aqui!', 'hotwebhookuser'); ?></a>
-<p class="description" id="new-admin-email-description"><?php echo __('Esta configuração permite utilizar a aplicação SendGrid API para envio de e-mails.', 'hotwebhookuser' ); ?></p>
+<input type="text" class="regular-text" id="hmu_sendgrid" value="<?php echo $opts['hmu_sendgrid']; ?>" placeholder="Insira o seu token aqui!"
+    name="hmu_opts[hmu_sendgrid]"><a href="https://sendgrid.com/" target="_blank">
+    <?php echo __('Obtenha seu token aqui!', 'hotwebhookuser'); ?></a>
+<p class="description" id="new-admin-email-description">
+    <?php echo __('Esta configuração permite utilizar a aplicação SendGrid API para envio de e-mails.', 'hotwebhookuser' ); ?>
+</p>
 
 <?php
 }
@@ -98,36 +101,31 @@ function hmu_token_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
 <input type="text" class="regular-text" id="hmu_token_required" value="<?php echo $opts['hmu_token_required']; ?>"
- placeholder="Insira o seu token aqui!"
-required="" name="hmu_opts[hmu_token_required]">
+    placeholder="Insira o seu token aqui!" required="" name="hmu_opts[hmu_token_required]">
 <?php
 }
 
 function hmu_hotmart_title_email_callback_funtion() {
     $opts = get_option('hmu_opts');
     ?>
-<input type="text" class="regular-text" id="hmu_title_email_required" 
-placeholder="[Curso] Seus Dados de Acesso" value="<?php echo $opts['hmu_title_email_required']; ?>"
-name="hmu_opts[hmu_title_email_required]">
+<input type="text" class="regular-text" id="hmu_title_email_required" placeholder="[Curso] Seus Dados de Acesso" value="<?php echo $opts['hmu_title_email_required']; ?>"
+    name="hmu_opts[hmu_title_email_required]">
 <?php
 }
 
 function hmu_hotmart_remetente_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
-<input type="text" class="regular-text" id="hmu_nome_autor"
- placeholder="Nome do autor do curso" value="<?php echo $opts['hmu_nome_autor']; ?>"
- name="hmu_opts[hmu_nome_autor]">
+<input type="text" class="regular-text" id="hmu_nome_autor" placeholder="Nome do autor do curso" value="<?php echo $opts['hmu_nome_autor']; ?>"
+    name="hmu_opts[hmu_nome_autor]">
 <?php
 }
 
 function hmu_hotmart_email_remetente_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
-<input type="text" class="regular-text" 
-id="hmu_email_remetente_required" 
-placeholder="E-mail do autor" value="<?php echo $opts['hmu_email_remetente_required']; ?>"
-name="hmu_opts[hmu_email_remetente_required]">
+<input type="text" class="regular-text" id="hmu_email_remetente_required" placeholder="E-mail do autor" value="<?php echo $opts['hmu_email_remetente_required']; ?>"
+    name="hmu_opts[hmu_email_remetente_required]">
 <?php
 }
 
@@ -150,15 +148,16 @@ function hmu_conteudo_email_callback_function () {
     $value = $opts['hmu_conteudo_email'] == "" ? $template_html : $opts['hmu_conteudo_email'];
     wp_editor( $value, 'content_tiny', $settings);
     ?>
-    <input type="hidden" value="<?php echo esc_html($opts['hmu_conteudo_email']); ?>" name="hmu_opts[hmu_conteudo_email]" id="hmu_conteudo_email" />
-    <script>
-        jQuery(function($) {
-            $("#opt-form").on('submit', function(e) {
-                $('#hmu_conteudo_email').val( tinymce.activeEditor.getContent() );
-            });
+<input type="hidden" value="<?php echo esc_html($opts['hmu_conteudo_email']); ?>" name="hmu_opts[hmu_conteudo_email]"
+    id="hmu_conteudo_email" />
+<script>
+    jQuery(function ($) {
+        $("#opt-form").on('submit', function (e) {
+            $('#hmu_conteudo_email').val(tinymce.activeEditor.getContent());
         });
-    </script>
-    <?php
+    });
+</script>
+<?php
 }
 
 function hmu_link_webhook() {
