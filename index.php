@@ -7,7 +7,7 @@
 /*
 Plugin Name:  Webhook Criar Usuário (Hotmart).
 Plugin URI:   https://developer.wordpress.org/plugins/the-basics/
-Description:  Este plugins foi criado para fazer um usuário em seu blog quando houver uma confirmação de pagamento.
+Description:  Plugin para WordPress  que realiza a integração com o WebHook do Hotmart. O plugin tem como função criar um usuário em seu blog quando o cliente efetivar uma compra.
 Version:      1.0
 Author:       Maycon Rayone Rodrigues Xavier
 Author URI:   https://github.com/mrayone
