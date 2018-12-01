@@ -55,9 +55,10 @@ class UserController
         if (count($errors) === 0) {
             if ($obj["hottok"] == $this->options['hmu_token_required']) {
                 switch($obj['status']) {
-                    case 'completed': 
+                    case 'approved': 
                         $this->create_user($obj);
                     break;
+                    case 'canceled':
                     case 'chargeback':
                     case 'refunded':
                         $this->delete_user($obj);
