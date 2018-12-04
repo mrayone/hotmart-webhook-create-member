@@ -27,7 +27,6 @@ define ('HMU_PLUGIN_URL', __FILE__);
 //Includes;
 include( 'includes/active.php' );
 include( 'includes/deactivate.php' );
-include( 'includes/init.php' );
 include( 'includes/admin/init.php' );
 include( 'includes/admin/menus.php' );
 include( 'includes/admin/plugin-options-page.php' );
