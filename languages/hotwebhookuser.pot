@@ -1,0 +1,160 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Webhook Criar Usuário (Hotmart).\n"
+"POT-Creation-Date: 2018-12-04 12:41-0200\n"
+"PO-Revision-Date: 2018-12-04 12:41-0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: index.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: assets/libs/vendor/sendgrid/php-http-client/test/unit/ClientTest.php:41
+msgid "test"
+msgstr ""
+
+#: includes/active.php:8
+msgid "Você precisa atualizar a versão do seu WordPress para usar este plugin"
+msgstr ""
+
+#: includes/admin/menus.php:5 includes/admin/menus.php:6
+msgid "WebHook Hotmart"
+msgstr ""
+
+#: includes/admin/settings-api.php:9
+msgid "Integração com Hotmart"
+msgstr ""
+
+#: includes/admin/settings-api.php:16
+msgid "Token do Hotmart (*)"
+msgstr ""
+
+#: includes/admin/settings-api.php:24
+msgid "SendGrid API Token (Opcional)"
+msgstr ""
+
+#: includes/admin/settings-api.php:33
+msgid "E-mail para Clientes"
+msgstr ""
+
+#: includes/admin/settings-api.php:40
+msgid "Título do E-mail"
+msgstr ""
+
+#: includes/admin/settings-api.php:48
+msgid "Nome do Autor"
+msgstr ""
+
+#: includes/admin/settings-api.php:56
+msgid "E-mail do Remetente"
+msgstr ""
+
+#: includes/admin/settings-api.php:64
+msgid "Conteúdo do E-mail"
+msgstr ""
+
+#: includes/admin/settings-api.php:73
+msgid "Link do WebHook"
+msgstr ""
+
+#: includes/admin/settings-api.php:82
+msgid ""
+"Aqui você poderá configurar o WebHook do Hotmart e também customizar o e-"
+"mail enviado para seu cliente!"
+msgstr ""
+
+#: includes/admin/settings-api.php:92
+msgid "Obtenha seu token aqui!"
+msgstr ""
+
+#: includes/admin/settings-api.php:94
+msgid ""
+"Esta configuração permite utilizar a aplicação SendGrid API para envio de e-"
+"mails."
+msgstr ""
+
+#: includes/admin/settings-api.php:164
+msgid "Aqui está o link que você deve por em sua conta do Hotmart:"
+msgstr ""
+
+#: includes/api/UserController.php:42
+msgid "Bad Request"
+msgstr ""
+
+#: includes/api/UserController.php:86
+msgid "Este e-mail já está em uso!"
+msgstr ""
+
+#: includes/api/UserController.php:156
+msgid "Erro ao enviar e-mail."
+msgstr ""
+
+#: index.php:21
+msgid "Olá, Eu sou apenas um plugin, não posso ser acessado diretamente."
+msgstr ""
+
+#: template/email-template.php:2
+msgid "Olá"
+msgstr ""
+
+#: template/email-template.php:3
+msgid "aqui é o"
+msgstr ""
+
+#: template/email-template.php:4
+msgid ""
+"Estou te enviando esse e-mail para parabenizá-lo por sua inscrição no curso "
+"CURSO_NOME e também para te passar os\n"
+"dados de acesso!"
+msgstr ""
+
+#: template/email-template.php:8
+msgid "Segue os dados:"
+msgstr ""
+
+#: template/email-template.php:11
+msgid "Site para acesso:"
+msgstr ""
+
+#: template/email-template.php:14
+msgid "Login:"
+msgstr ""
+
+#: template/email-template.php:16
+msgid "Senha Temporária:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Webhook Criar Usuário (Hotmart)."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://developer.wordpress.org/plugins/the-basics/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Plugin para WordPress  que realiza a integração com o WebHook do Hotmart. O "
+"plugin tem como função criar um usuário em seu blog quando o cliente "
+"efetivar uma compra e deleta-lo caso ocorra reembolso ou estorno."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Maycon Rayone Rodrigues Xavier"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/mrayone"
+msgstr ""
