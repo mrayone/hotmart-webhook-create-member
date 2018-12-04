@@ -6,5 +6,6 @@ Estão presentes neste plugin as seguintes funcionalidades:
 
 2. Verifica o campo status do WebHook para criar usuário quando a compra estiver "aprovada" e excluir o mesmo caso seja solicitado "estorno" ou "reembolso".
 
-#Observações
+## Observações
+
 O plugin utiliza a função de rest_api do WordPress. Desta forma recomenda-se a utilização das versões  >= 4.5 e o links-permanentes no modelo "nome do post".
