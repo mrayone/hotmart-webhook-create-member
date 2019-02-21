@@ -1,17 +1,16 @@
 <h2>
-    <?php __("Olá", 'hotwebhookuser'); ?> NOME_CLIENTE,
-    <?php echo __("aqui é o", ''); ?> NOME_AUTOR </h2>
-<?php echo __('Estou te enviando esse e-mail para parabenizá-lo por sua inscrição no curso CURSO_NOME e também para te passar os
-dados de acesso!','hotwebhookuser'); ?>
+    TEXT_1  NOME_CLIENTE,
+    TEXT_2  NOME_AUTOR </h2>
+    TEXT_3 
 
 <strong>
-    <?php  echo __("Segue os dados:", 'hotwebhookuser'); ?></strong>
+    TEXT_4 </strong>
 <ul>
     <li>
-        <?php  echo __("Site para acesso:", 'hotwebhookuser'); ?>
+        TEXT_5 <a href="URL_SITE">URL_SITE<a/>
     </li>
     <li>
-        <?php  echo __("Login:", 'hotwebhookuser'); ?> USU_LOGIN</li>
+        TEXT_6 USU_LOGIN</li>
     <li>
-        <?php  echo __("Senha Temporária:", 'hotwebhookuser'); ?> <strong>USU_PASSWORD</strong></li>
+        TEXT_7 <strong>USU_PASSWORD</strong></li>
 </ul>

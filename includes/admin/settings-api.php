@@ -37,7 +37,7 @@ function hmu_settings_api()
 
     add_settings_field(
         'hmu_title_email_required',
-        __('Título do E-mail', 'hotwebhookuser'),
+        __('Título do E-mail (*)', 'hotwebhookuser'),
         'hmu_hotmart_title_email_callback_funtion',
         'hmu_opts_email_sections',
         'hmu_settings'
@@ -45,7 +45,7 @@ function hmu_settings_api()
 
     add_settings_field(
         'hmu_nome_autor',
-        __('Nome do Autor', 'hotwebhookuser'),
+        __('Nome do Autor (*)', 'hotwebhookuser'),
         'hmu_hotmart_remetente_callback_function',
         'hmu_opts_email_sections',
         'hmu_settings'
@@ -53,7 +53,7 @@ function hmu_settings_api()
 
     add_settings_field(
         'hmu_email_remetente_required',
-        __('E-mail do Remetente', 'hotwebhookuser'),
+        __('E-mail do Remetente (*)', 'hotwebhookuser'),
         'hmu_hotmart_email_remetente_callback_function',
         'hmu_opts_email_sections',
         'hmu_settings'
@@ -108,7 +108,7 @@ function hmu_token_callback_function () {
 function hmu_hotmart_title_email_callback_funtion() {
     $opts = get_option('hmu_opts');
     ?>
-<input type="text" class="regular-text" id="hmu_title_email_required" placeholder="[Curso] Seus Dados de Acesso" value="<?php echo $opts['hmu_title_email_required']; ?>"
+<input type="text" class="regular-text" id="hmu_title_email_required" required="" placeholder="[Curso] Seus Dados de Acesso" value="<?php echo $opts['hmu_title_email_required']; ?>"
     name="hmu_opts[hmu_title_email_required]">
 <?php
 }
@@ -124,7 +124,7 @@ function hmu_hotmart_remetente_callback_function () {
 function hmu_hotmart_email_remetente_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
-<input type="text" class="regular-text" id="hmu_email_remetente_required" placeholder="E-mail do autor" value="<?php echo $opts['hmu_email_remetente_required']; ?>"
+<input type="text" class="regular-text" id="hmu_email_remetente_required" placeholder="E-mail do autor" required="" value="<?php echo $opts['hmu_email_remetente_required']; ?>"
     name="hmu_opts[hmu_email_remetente_required]">
 <?php
 }
@@ -144,9 +144,21 @@ function hmu_conteudo_email_callback_function () {
     );
     
     $template_html = wp_remote_retrieve_body($template);
+    $template_html = str_replace('TEXT_1', __("Olá", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('TEXT_2', __("aqui é o", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('TEXT_3', __("Estou te enviando esse e-mail para parabenizá-lo por sua inscrição no curso CURSO_NOME e também para te passar os
+    dados de acesso!", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('TEXT_4', __("Segue os dados:", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('TEXT_5', __("Site para acesso:", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('TEXT_6', __("Login:", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('TEXT_7', __("Senha Temporária:", 'hotwebhookuser') , $template_html);
+    $template_html = str_replace('URL_SITE', get_site_url().'/wp-login.php',$template_html);
 
     $value = $opts['hmu_conteudo_email'] == "" ? $template_html : $opts['hmu_conteudo_email'];
     wp_editor( $value, 'content_tiny', $settings);
+    ?>
+    <?php $message = __('Agilizaremos algumas coisas para você se as constantes ´NOME_CLIENTE, NOME_AUTOR, URL_SITE, USU_LOGIN, USU_PASSWORD´ continuarem no corpo do e-mail :) !!!', 'hotwebhookuser'); 
+        echo "<p> <strong>{$message}</strong> </p>";
     ?>
 <input type="hidden" value="<?php echo esc_html($opts['hmu_conteudo_email']); ?>" name="hmu_opts[hmu_conteudo_email]"
     id="hmu_conteudo_email" />
@@ -172,7 +184,7 @@ function hmu_link_webhook() {
 
 function hmu_opts_sanitaze ( $input ) {
     $input['hmu_token_required']            = sanitize_text_field( $input['hmu_token_required'] );
-    $input['hmu_title_email_required'] = sanitize_text_field( $input['hmu_email_remetente_required'] );
+    $input['hmu_title_email_required'] = sanitize_text_field( $input['hmu_title_email_required'] );
     $input['hmu_remetente'] = sanitize_text_field( $input['hmu_remetente'] );
     $input['hmu_conteudo_email_input'] = sanitize_text_field( $input['hmu_conteudo_email_input'] );
     $input['hmu_sendgrid'] = sanitize_text_field( $input['hmu_sendgrid'] );

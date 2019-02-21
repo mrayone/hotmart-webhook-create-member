@@ -129,6 +129,7 @@ class UserController
 
         $message_html = $this->options['hmu_conteudo_email'];
 
+        
         $message_html = str_replace('NOME_CLIENTE', $dados['first_name'], $message_html);
         $message_html = str_replace('NOME_AUTOR', $this->options['hmu_nome_autor'], $message_html);
         $message_html = str_replace('CURSO_NOME', $dados['prod_name'], $message_html);
@@ -148,7 +149,6 @@ class UserController
             $email->addContent(
                 "text/html", $message_html
             );
-
             $sendgrid = new \SendGrid($this->options['hmu_sendgrid']);
             try {
                 $response = $sendgrid->send($email);
