@@ -101,7 +101,8 @@ function hmu_token_callback_function () {
     $opts = get_option('hmu_opts');
     ?>
 <input type="text" class="regular-text" id="hmu_token_required" value="<?php echo $opts['hmu_token_required']; ?>"
-    placeholder="Insira o seu token aqui!" required="" name="hmu_opts[hmu_token_required]">
+    placeholder="Insira o seu token aqui!" required="" name="hmu_opts[hmu_token_required]"><a href="https://app-vlc.hotmart.com/tools/webhook" target="_blank">
+    <?php echo __('Obtenha seu token aqui!', 'hotwebhookuser'); ?></a>
 <?php
 }
 
