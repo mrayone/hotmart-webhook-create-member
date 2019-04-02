@@ -24,9 +24,9 @@ class EmailService {
         $this->message_html = str_replace('USU_PASSWORD', $dados['password'], $this->message_html);
 
         if (empty($this->sendApi)) {
-            send_wp_mail($dados['email']);
+            $this->send_wp_mail($dados['email']);
         } else {
-            send_grid($dados['email']);
+            $this->send_grid($dados['email']);
         }
     }
 

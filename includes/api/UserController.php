@@ -1,6 +1,8 @@
 <?php
 namespace Controllers;
 
+use WP_Error;
+use WP_REST_Request;
 class UserController
 {
 
