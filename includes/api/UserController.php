@@ -1,23 +1,13 @@
 <?php
+namespace Controllers;
 
 class UserController
 {
 
     public function __construct()
     {
-        $this->namespace = '/hothook/v1';
         $this->resource_name = 'users';
         $this->options = get_option('hmu_opts');
-    }
-
-    public function register_routes()
-    {
-        register_rest_route($this->namespace, '/' . $this->resource_name, array(
-            array(
-                'methods' => 'POST',
-                'callback' => array($this, "store"),
-            ),
-        ));
     }
 
     public function authorization_status_code()
@@ -101,7 +91,6 @@ class UserController
 
     private function send_email($dados)
     {
-        
 
         wp_send_json("Done");        
     }

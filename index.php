@@ -1,7 +1,7 @@
 <?php 
 /**
  * Beta
- * @package Hotmart_Webhook_User_Creat.
+ * @package Hotmart_Webhook_Member_Create.
  * @version 1.0
  */
 /*
@@ -32,6 +32,7 @@ include( 'includes/admin/menus.php' );
 include( 'includes/admin/plugin-options-page.php' );
 include( 'includes/api/routes.php' );
 include( 'includes/api/UserController.php' );
+include( 'includes/api/services/EmailService.php' );
 require 'assets/libs/vendor/autoload.php';
 //Hooks
 register_activation_hook( __FILE__, 'hmu_active_plugin' );
