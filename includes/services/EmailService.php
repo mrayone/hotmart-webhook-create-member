@@ -3,7 +3,7 @@ namespace services;
 
 class EmailService {
 
-    public __construct () {
+    public function __construct () {
         $this->options = get_option('hmu_opts');
 
         $this->sendApi = $this->options['hmu_sendgrid'];

@@ -178,7 +178,7 @@ function hmu_link_webhook() {
     echo "<p> {$message} </p>";
     ?>
 <code>
-    <?php echo UserController::getRoute('store'); ?>
+    <?php echo \Controllers\UserController::getRoute('store'); ?>
 </code>
 <?php
 }

@@ -31,8 +31,8 @@ include( 'includes/admin/init.php' );
 include( 'includes/admin/menus.php' );
 include( 'includes/admin/plugin-options-page.php' );
 include( 'includes/api/routes.php' );
-include( 'includes/api/UserController.php' );
-include( 'includes/api/services/EmailService.php' );
+require( 'includes/api/UserController.php' );
+require( 'includes/services/EmailService.php' );
 require 'assets/libs/vendor/autoload.php';
 //Hooks
 register_activation_hook( __FILE__, 'hmu_active_plugin' );

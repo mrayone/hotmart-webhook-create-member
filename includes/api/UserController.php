@@ -90,6 +90,9 @@ class UserController
 
     private function send_email($dados)
     {
+        $email_service = new \services\EmailService();
+
+        $email_service->send_email($dados);
 
         wp_send_json("Done");        
     }
