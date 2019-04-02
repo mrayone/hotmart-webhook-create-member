@@ -6,7 +6,6 @@ class UserController
 
     public function __construct()
     {
-        $this->resource_name = 'users';
         $this->options = get_option('hmu_opts');
     }
 
