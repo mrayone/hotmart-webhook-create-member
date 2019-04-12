@@ -61,12 +61,12 @@ class UserController
     }
 
     private function create_user($obj) {
-        $password = wp_generate_password(6, false);
+        $obj['password'] = wp_generate_password(6, false);
         if (email_exists($obj["email"])) {
             //TODO: Melhorar esta abordagem, pois a intenção é mapear um reenvio do hotmart.
             // Talvez a solução seria quebrar em novos métodos e validar corretamente os possíveis cenários.
             $user = get_user_by( 'email', $obj["email"] );
-            wp_set_password( $password, $user->ID );
+            wp_set_password( $obj['password'], $user->ID );
                         
         } else {
             $userdata = array(
@@ -75,10 +75,9 @@ class UserController
                 'first_name' => $obj['first_name'],
                 'last_name' => $obj['last_name'],
                 'user_email' => $obj['email'],
-                'user_pass' => $password,
+                'user_pass' => $obj['password'],
             );
             wp_insert_user($userdata);
-            $obj['password'] = $password;
         }
 
         $this->send_email($obj);        
