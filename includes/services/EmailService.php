@@ -4,6 +4,13 @@ namespace services;
 use WP_Error;
 class EmailService {
 
+    private $options;
+    private $sendApi;
+    private $nome_autor;
+    private $message_html;
+    private $assunto;
+    private $headers;
+
     public function __construct () {
         $this->options = get_option('hmu_opts');
 
