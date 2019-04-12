@@ -1,7 +1,15 @@
 <?php
 namespace services;
 
+use WP_Error;
 class EmailService {
+
+    private $options;
+    private $sendApi;
+    private $nome_autor;
+    private $message_html;
+    private $assunto;
+    private $headers;
 
     public function __construct () {
         $this->options = get_option('hmu_opts');
@@ -24,9 +32,9 @@ class EmailService {
         $this->message_html = str_replace('USU_PASSWORD', $dados['password'], $this->message_html);
 
         if (empty($this->sendApi)) {
-            $this->send_wp_mail($dados['email']);
+            $this->send_wp_mail($dados);
         } else {
-            $this->send_grid($dados['email']);
+            $this->send_grid($dados);
         }
     }
 
