@@ -9,3 +9,7 @@ Estão presentes neste plugin as seguintes funcionalidades:
 ## Observações
 
 O plugin utiliza a função de rest_api do WordPress. Desta forma recomenda-se a utilização das versões  >= 4.5 e o links-permanentes no modelo "nome do post".
+
+
+### Configuração do .htaccess (Servidor Apache)
+https://github.com/mrayone/hotmart-webhook-create-member/blob/master/examples/.htaccess
