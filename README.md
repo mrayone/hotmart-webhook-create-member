@@ -1,6 +1,6 @@
 # Hotmart Criador de Membros WebHook (Hotmart Member Creator WebHook)
 
-O hotmart member creator gera um Webhook de integração do hotmart e o seu blog. Ao ativar este plugin você contém as seguintes funcionalidades:
+O hotmart member creator gera um Webhook de integração do hotmart com o seu blog. Ao ativar este plugin você contém as seguintes funcionalidades:
 
 1. Criação de membros com a função padrão definida.
 2. Integração para envio de e-mail com SendGrid.
@@ -17,7 +17,7 @@ O hotmart member creator gera um Webhook de integração do hotmart e o seu blog
 
 ## Instalação
 
-Para instalar no seu blog, basta baixar o pacote de release aqui do github em .zip e adicionar no seu blog, conforme as imagens 1 e 2.
+Para instalar no seu blog, basta baixar o pacote de release aqui do github em .zip e adicionar no seu blog, conforme as imagens 1, 2 e 3.
 
 #### 1. Figura da área de releases.
 
@@ -30,7 +30,7 @@ Para instalar no seu blog, basta baixar o pacote de release aqui do github em .z
 - Obs: O Download desta seção está relacionada a versão do código conforme a descrição.
 - Para baixar basta clicar em **Source code** conforme a extensão desejada.
 
-### 3. Envio do plugin
+### 3. Figura de envio do plugin
 
 No seu blog você deve acessar a página `https://<url-do-seu-blog>/wp-admin/plugin-install.php` e enviar o plugin `hotmart-webhook-create-member-<versao>.zip`
 
@@ -57,6 +57,3 @@ O próprio hotmart já disponibiliza uma [documentação](https://developers.hot
 https://github.com/mrayone/hotmart-webhook-create-member/blob/master/examples/.htaccess
 
 > Obrigado pela utilização desta solução.
-
-License
-MIT
