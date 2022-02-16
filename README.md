@@ -13,7 +13,7 @@ O hotmart member creator gera um Webhook de integração do hotmart e o seu blog
 - Hotmart WebAPI: V1.
 - Conhecimento mínimo de wordpress e instalação de plugins.
 
-> O hotmart autilizou a sua versão de API, logo mais teremos a atualização no plugin. Para novos usuários sugiro aguardar a modificação a menos que tenha disponível a V1 no seu blog.
+> O hotmart atualizou a sua versão de API, logo mais haverá a atualização no plugin também. Para novos usuários sugiro aguardar a modificação a menos que tenha disponível a V1 da API para você.
 
 ## Instalação
 
