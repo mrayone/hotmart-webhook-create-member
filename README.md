@@ -1,15 +1,29 @@
-# Hotmart Criador de Membros WebHook (Hotmart Member Creator WebHook) Beta 1.0
-Um Plugin para WordPress que realiza a integração com o WebHook do Hotmart. O plugin tem como função criar um usuário em seu blog quando o cliente efetivar uma compra de algum curso.
-Estão presentes neste plugin as seguintes funcionalidades:
+# Hotmart Criador de Membros WebHook (Hotmart Member Creator WebHook)
 
-1. Integração com API do SendGrid E-mail. Esta integração é opcional já que o plugin utiliza a função "wp_mail" do WordPress para utilizar o servidor de SMTP da própria hospedagem.
+O hotmart member creator gera um Webhook de integração coma plataforma no seu blog. Ao ativar este plugin você contém as seguintes funcionalidades:
 
-2. Verifica o campo status do WebHook para criar usuário quando a compra estiver "aprovada" e excluir o mesmo caso seja solicitado "estorno" ou "reembolso".
+1. Criação de membros com a role padrão.
+2. Integração para envio de e-mail com sendcrid.
+3. Customização de mensagens de e-mail com **_Helpers_**.
 
-## Observações
+## Requisitos :warning:
 
-O plugin utiliza a função de rest_api do WordPress. Desta forma recomenda-se a utilização das versões  >= 4.5 e o links-permanentes no modelo "nome do post".
+- PHP: >=7
+- Wordpress: >= 5.6
+- Hotmart Web API V1.
 
+## Instalação
+
+Para instalar no seu blog, basta baixar o pacote de release aqui do github em .zip e adicionar no seu blog, conforme as imagens 1 e 2.
+
+### 1. Baixando o pacote.
+
+### Instalação via loja wordpress
+
+:construction:
+
+## Configuração
 
 ### Configuração do .htaccess (Servidor Apache)
+
 https://github.com/mrayone/hotmart-webhook-create-member/blob/master/examples/.htaccess
