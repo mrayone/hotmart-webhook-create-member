@@ -31,7 +31,8 @@ include( 'includes/admin/init.php' );
 include( 'includes/admin/menus.php' );
 include( 'includes/admin/plugin-options-page.php' );
 include( 'includes/api/routes.php' );
-require( 'includes/api/UserController.php' );
+require( 'includes/api/v1/UserController.php' );
+require( 'includes/api/v2/UserController.php' );
 require( 'includes/services/EmailService.php' );
 require 'assets/libs/vendor/autoload.php';
 //Hooks

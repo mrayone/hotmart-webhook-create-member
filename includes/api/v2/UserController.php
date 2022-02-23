@@ -1,5 +1,5 @@
 <?php
-namespace Controllers;
+namespace Controllers\v2;
 
 use WP_Error;
 use WP_REST_Request;
@@ -141,7 +141,7 @@ class UserController
     {
         switch ($resource) {
             case "store":
-                return rest_url("/hothook/v1/users");
+                return rest_url("/hothook/v2/users");
             default:
                 return null;
         }
