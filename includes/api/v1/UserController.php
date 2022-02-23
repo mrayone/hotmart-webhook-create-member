@@ -25,7 +25,7 @@ class UserController
     public function store($request)
     {
         if (!($request instanceof WP_REST_Request)) {
-            return new WP_Error('rest_forbidden', esc_html__('Bad Request'), array('status' => 502));
+            return new WP_Error('rest_forbidden', esc_html__('Bad Request'), array('status' => 401));
         }
 
         $obj = $request->get_params();

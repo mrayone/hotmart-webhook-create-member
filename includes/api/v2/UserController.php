@@ -25,38 +25,42 @@ class UserController
     public function store($request)
     {
         if (!($request instanceof WP_REST_Request)) {
-            return new WP_Error('rest_forbidden', esc_html__('Bad Request'), array('status' => 502));
+            return new WP_Error('rest_forbidden', esc_html__('Bad Request'), array('status' => 401));
+        }
+
+        $hottok = $request->get_header("X-HOTMART-HOTTOK");
+        if($hottok === null)
+        {
+            return new WP_Error('rest_forbidden', esc_html__('HOTMART TOKEN is missing'), array('status' => 401));
         }
 
         $obj = $request->get_params();
         $errors = $this->validate($obj, [
-            "hottok" => 'required',
-            "first_name" => 'required',
-            "last_name" => 'required',
-            "email" => "required|email",
-            "status"=> "required"
+            "buyer" => 'required',
+            "event"=> "required"
         ]
         );
 
         if (count($errors) === 0) {
-            if ($obj["hottok"] == $this->options['hmu_token_required']) {
-                switch($obj['status']) {
-                    case 'approved': 
-                        $this->create_user($obj);
+            if ($hottok === $this->options['hmu_token_required']) {
+                switch($obj['event']) {
+                    case 'PURCHASE_APPROVED': 
+                        $this->create_user($obj['buyer']);
                     break;
-                    case 'canceled':
-                    case 'chargeback':
-                    case 'refunded':
-                        $this->delete_user($obj);
+                    case 'WAITING_PAYMENT': return;
+                    case 'PURCHASE_CANCELED':
+                    case 'PURCHASE_REFUNDED':
+                    case 'PURCHASE_CHARGEBACK':
+                        $this->delete_user($obj['buyer']);
                     break;
                 }
             } else {
-                status_header(502);
+                status_header(400);
                 wp_send_json("Token Inválido!");
             }
         }
 
-        status_header(502);
+        status_header(400);
         wp_send_json($errors);
     }
 
@@ -71,9 +75,8 @@ class UserController
         } else {
             $userdata = array(
                 'user_login' => $obj['email'],
-                'user_nicename' => $obj['first_name'],
-                'first_name' => $obj['first_name'],
-                'last_name' => $obj['last_name'],
+                'user_nicename' => $obj['name'],
+                'first_name' => $obj['name'],
                 'user_email' => $obj['email'],
                 'user_pass' => $obj['password'],
             );
@@ -95,9 +98,10 @@ class UserController
 
     private function send_email($dados)
     {
-        $email_service = new \services\EmailService();
+        // ajustar envio de e-mail
+        // $email_service = new \services\EmailService();
 
-        $email_service->send_email($dados);
+        // $email_service->send_email($dados);
         
         status_header(200);
         wp_send_json("Done");        
